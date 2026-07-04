@@ -7,6 +7,7 @@ import {
     deleteCar
 } from "./firebase.js";
 
+import { auth } from "./firebase-config.js";
 // =========================
 // GLOBAL VARIABLES
 // =========================
@@ -182,15 +183,21 @@ function displayCars(list) {
 
                 <div class="card-actions">
 
-                    <button class="edit-btn"
-                        onclick="handleEdit('${car.id}')">
-                        Edit
-                    </button>
+                    ${auth.currentUser &&
+                auth.currentUser.uid === car.ownerId
+                ? `
+                                <button class="edit-btn"
+                                    onclick="handleEdit('${car.id}')">
+                                    Edit
+                                </button>
 
-                    <button class="delete-btn"
-                        onclick="handleDelete('${car.id}')">
-                        Delete
-                    </button>
+                                <button class="delete-btn"
+                                    onclick="handleDelete('${car.id}')">
+                                    Delete
+                                </button>
+                              `
+                : ""
+            }
 
                 </div>
 

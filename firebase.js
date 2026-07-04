@@ -1,4 +1,4 @@
-import { db } from "./firebase-config.js";
+import { db, auth } from "./firebase-config.js";
 
 import {
     collection,
@@ -16,7 +16,19 @@ export async function addCar(car) {
 
     try {
 
-        const docRef = await addDoc(collection(db, "cars"), car);
+        if (!auth.currentUser) {
+            throw new Error("You must be logged in to add a car.");
+        }
+
+        const docRef = await addDoc(collection(db, "cars"), {
+
+            ...car,
+
+            ownerId: auth.currentUser.uid,
+
+            ownerName: auth.currentUser.displayName
+
+        });
 
         console.log("Car saved with ID:", docRef.id);
 
