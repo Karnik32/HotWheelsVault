@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hot Wheels Vault</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <section class="auth-section">
+
+                <button id="loginBtn">
+                    Sign in with Google
+                </button>
+
+                <button id="logoutBtn" style="display:none;">
+                    Logout
+                </button>
+
+                <div id="userInfo"></div>
+            </section>
+
+            <h1>Hot Wheels Vault</h1>
+
+            <p>My Personal Hot Wheels Collection</p>
+
+            <div class="counter">
+
+                <span id="carCount">0</span>
+
+                Cars Collected
+
+            </div>
+
+        </header>
+
+        <section class="search-section">
+
+            <input type="text" id="searchInput" placeholder="Search by car name, year or place">
+
+        </section>
+
+        <section class="form-card" id="formCard">
+
+            <h2>Add / Edit Car</h2>
+
+            <form id="carForm">
+
+                <label>Car Name</label>
+
+                <input type="text" id="carName" required>
+
+                <label>Year</label>
+
+                <input type="number" id="carYear" required>
+
+                <label>Place Purchased</label>
+
+                <input type="text" id="carPlace" required>
+
+                <label>Picture</label>
+
+                <!-- Image is no longer required while editing -->
+                <input type="file" id="carImage" accept="image/*">
+
+                <button type="submit" id="saveBtn">
+
+                    Save Car
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="collection">
+
+            <h2>My Collection</h2>
+
+            <div id="collectionGrid">
+
+                <div class="empty-state">
+
+                    <h3>No cars added yet</h3>
+
+                    <p>
+
+                        Start building your collection by adding your first Hot Wheels.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
